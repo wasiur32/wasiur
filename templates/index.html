@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Body Mask</title>
+  <style>
+    body {
+      background-color: #000; /* Set background color to pure black */
+      background-image: url('your_background_image.jpg'); /* Add your background image here */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: violet;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 50vh; /* Center text vertically */
+      color: violet;
+    }
+
+    h4 {
+      color: violet;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    input[type="file"] {
+      color: violet;
+      margin: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: mediumseagreen;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    p {
+      color: mediumseagreen;
+    }
+
+    img {
+      width: 300px;
+      height: 225px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>dr wasim ratan and wasiur rahaman water body segmentation deep learning model </h2>
+  <h4>Upload an image and click submit</h4>
+
+  <form method="post" action="/" enctype="multipart/form-data">
+    <input type="file" name="file" autocomplete="off" required>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        Diagnosis for the following image is: <u><h3>{{ messages[0] }}</h3></u><br>
+        <img src="{{ messages[1] }}">
+      {% endif %}
+    {% endwith %}
+  </p>
+</body>
+</html>
